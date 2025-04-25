@@ -6,41 +6,54 @@
 // let Peace1;
 // let x = 0;
 // let y = 0;
-let size = 400;
+let peaceSize = 400;
+let sqImgSize = 440;
 
 
 function setup () {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight); //size if filling browser
+  createCanvas(sqImgSize, sqImgSize); //fixed canvas for printing to image file
+  //clear(); //set background clear for PNG
 
 }
 
 function draw () {
-  background(255, 255, 255);
+  //background(255, 255, 255); //setbackground white if needed
+  background(0, 0, 0); //setbackground black if needed
 
-  Peace(windowWidth/2, windowHeight/2, size);
-
+  //Peace(windowWidth/2, windowHeight/2, peaceSize);
+  Peace(sqImgSize/2, sqImgSize/2, peaceSize);
 }
 
 
-function Peace(cen_x, cen_y, size) {
-  diam = size/2;
-  offset = size/4;
+function Peace(cen_x, cen_y, peaceSize) {
+  diam = peaceSize/2;
+  offset = peaceSize/4;
   theo = (sqrt(3)/2)*offset; //theodorus constant
 
   noFill();
-  stroke(0,0,0);
+  //stroke(0,0,0); //black circles
+  stroke(255,255,255); //white circles
   strokeWeight(8);
-  circle(cen_x, cen_y, diam);
+  
+  circle(cen_x, cen_y, diam); //centre
+  
+  circle(cen_x+offset/2, cen_y+theo, diam); //right bottom
+  
+  circle(cen_x-offset/2, cen_y-theo, diam); //left top
+  circle(cen_x-offset, cen_y, diam); //left centre
+  circle(cen_x-offset/2, cen_y+theo, diam); //left bottom
 
-  circle(cen_x-offset, cen_y, diam);
-  circle(cen_x+offset/2, cen_y+theo, diam);
-  circle(cen_x+offset/2, cen_y-theo, diam);
-  circle(cen_x-offset/2, cen_y+theo, diam);
-  //circle(cen_x+offset/2, cen_y-theo, diam);
-  circle(cen_x-offset/2, cen_y-theo, diam);
+  //stroke(130, 179, 220); //cov club colour
+  circle(cen_x+offset/2, cen_y-theo, diam); // right top - cov club 
 
-  stroke(255, 192, 203);
-  circle(cen_x+offset, cen_y, diam);
+
+  //stroke(255, 192, 203); //evie colour
+  circle(cen_x+offset, cen_y, diam); //right centre - evie peace
+  
+
+  saveCanvas('peace-whiteonblack', 'png'); // saves right after drawing
+  noLoop(); // stops draw loop
 
 }
 
