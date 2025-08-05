@@ -52,7 +52,7 @@ function Peace(cen_x, cen_y, peaceSize) {
   circle(cen_x+offset, cen_y, diam); //right centre - evie peace
   
 
-  saveCanvas('peace-whiteonblack', 'png'); // saves right after drawing
+  // saveCanvas('peace-whiteonblack', 'png'); // saves right after drawing
   noLoop(); // stops draw loop
 
 }
