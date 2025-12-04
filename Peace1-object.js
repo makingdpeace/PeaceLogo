@@ -38,21 +38,24 @@ function Peace(cen_x, cen_y, peaceSize) {
   
   circle(cen_x, cen_y, diam); //centre
   
-  circle(cen_x+offset/2, cen_y+theo, diam); //right bottom
-  
+   
   circle(cen_x-offset/2, cen_y-theo, diam); //left top
   circle(cen_x-offset, cen_y, diam); //left centre
   circle(cen_x-offset/2, cen_y+theo, diam); //left bottom
 
-  //stroke(130, 179, 220); //cov club colour
+  stroke(130, 179, 220); //cov club colour
   circle(cen_x+offset/2, cen_y-theo, diam); // right top - cov club 
 
 
-  //stroke(255, 192, 203); //evie colour
+  stroke(255, 192, 203); //evie colour
   circle(cen_x+offset, cen_y, diam); //right centre - evie peace
   
+  stroke(102, 180, 120); //evie colour
+  circle(cen_x+offset/2, cen_y+theo, diam); //right bottom - jjiimm
+  
 
-  // saveCanvas('peace-whiteonblack', 'png'); // saves right after drawing
+
+  //saveCanvas('peace-covclubandevieandjjiimm', 'png'); // saves right after drawing
   noLoop(); // stops draw loop
 
 }
